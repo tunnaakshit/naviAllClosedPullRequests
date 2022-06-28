@@ -1,0 +1,6 @@
+framework module Pods_AllClosedPullRequestsApp_AllClosedPullRequestsAppUITests {
+  umbrella header "Pods-AllClosedPullRequestsApp-AllClosedPullRequestsAppUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

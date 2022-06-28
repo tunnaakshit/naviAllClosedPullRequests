@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_AllClosedPullRequestsApp_AllClosedPullRequestsAppUITests : NSObject
+@end
+@implementation PodsDummy_Pods_AllClosedPullRequestsApp_AllClosedPullRequestsAppUITests
+@end

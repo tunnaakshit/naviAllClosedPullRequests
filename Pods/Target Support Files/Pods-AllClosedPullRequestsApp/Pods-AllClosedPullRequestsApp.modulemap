@@ -1,0 +1,6 @@
+framework module Pods_AllClosedPullRequestsApp {
+  umbrella header "Pods-AllClosedPullRequestsApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
