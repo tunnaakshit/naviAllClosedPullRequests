@@ -1,24 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AllClosedPullRequestsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFb-eH-uS5">
+                                <rect key="frame" x="20" y="244" width="115" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="115" id="aHg-GU-ev4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repo Name: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDl-dS-ROR">
+                                <rect key="frame" x="20" y="313" width="115" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="115" id="yTr-O8-Kvd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="arV-iq-dJs">
+                                <rect key="frame" x="143" y="239" width="251" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yc2-aa-h0A">
+                                <rect key="frame" x="143" y="308" width="251" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRO-d1-rJY">
+                                <rect key="frame" x="30" y="776" width="354" height="56"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="bVQ-So-bVa"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Fetch Closed Pull Requests">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="fetchingAllClosedPullRequests:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eGr-it-cI4"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="arV-iq-dJs" secondAttribute="trailing" constant="20" id="2ou-ZT-oOp"/>
+                            <constraint firstItem="hRO-d1-rJY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="5qK-Bl-uGD"/>
+                            <constraint firstItem="jDl-dS-ROR" firstAttribute="top" secondItem="mFb-eH-uS5" secondAttribute="bottom" constant="45" id="6kA-Qw-7EO"/>
+                            <constraint firstItem="jDl-dS-ROR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="AzS-24-Rp8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hRO-d1-rJY" secondAttribute="trailing" constant="30" id="Mbz-64-34f"/>
+                            <constraint firstItem="jDl-dS-ROR" firstAttribute="width" secondItem="mFb-eH-uS5" secondAttribute="width" id="MoK-UU-y7K"/>
+                            <constraint firstItem="arV-iq-dJs" firstAttribute="centerY" secondItem="mFb-eH-uS5" secondAttribute="centerY" id="O1K-p0-9fW"/>
+                            <constraint firstItem="mFb-eH-uS5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Tka-eq-8lt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yc2-aa-h0A" secondAttribute="trailing" constant="20" id="bhJ-Zo-7hf"/>
+                            <constraint firstItem="yc2-aa-h0A" firstAttribute="leading" secondItem="jDl-dS-ROR" secondAttribute="trailing" constant="8" id="hHj-zK-vuk"/>
+                            <constraint firstItem="arV-iq-dJs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="195" id="iWe-Oa-VEN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hRO-d1-rJY" secondAttribute="bottom" constant="30" id="ieF-dG-79r"/>
+                            <constraint firstItem="mFb-eH-uS5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="kWM-2c-y7L"/>
+                            <constraint firstItem="arV-iq-dJs" firstAttribute="leading" secondItem="mFb-eH-uS5" secondAttribute="trailing" constant="8" id="oGr-82-hTW"/>
+                            <constraint firstItem="yc2-aa-h0A" firstAttribute="centerY" secondItem="jDl-dS-ROR" secondAttribute="centerY" id="u9b-Mk-aKw"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="fetchButton" destination="hRO-d1-rJY" id="7Bc-uz-UbP"/>
+                        <outlet property="repoName" destination="yc2-aa-h0A" id="jbL-8Y-2Pj"/>
+                        <outlet property="userName" destination="arV-iq-dJs" id="gEz-Tk-2Ta"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="116.51785714285714"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

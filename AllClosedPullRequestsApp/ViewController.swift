@@ -10,6 +10,9 @@ import UIKit
 class ViewController: UIViewController {
 
     // MARK: Outlets
+    @IBOutlet weak var userName: UITextField!
+    @IBOutlet weak var repoName: UITextField!
+    @IBOutlet weak var fetchButton: UIButton!
     
     // MARK: Variables
     
@@ -21,6 +24,9 @@ class ViewController: UIViewController {
     
     // MARK: Actions
 
+    @IBAction func fetchingAllClosedPullRequests(_ sender: Any) {
+        
+    }
 
 }
 
