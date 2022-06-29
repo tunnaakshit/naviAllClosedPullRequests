@@ -25,8 +25,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        self.usernameLabel.text = "Username"
-        self.repoNameLabel.text = "Repo Name"
+        setupUI()
         
     }
     
@@ -39,6 +38,13 @@ class ViewController: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
         
+    }
+    
+    // MARK: Functions
+    
+    func setupUI() {
+        self.usernameLabel.text = "Username"
+        self.repoNameLabel.text = "Repo Name"
     }
 
 }
