@@ -18,6 +18,10 @@
 		8205252E286B65610091B4C7 /* AllClosedPullRequestsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8205252D286B65610091B4C7 /* AllClosedPullRequestsAppTests.swift */; };
 		82052538286B65610091B4C7 /* AllClosedPullRequestsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82052537286B65610091B4C7 /* AllClosedPullRequestsAppUITests.swift */; };
 		8205253A286B65610091B4C7 /* AllClosedPullRequestsAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82052539286B65610091B4C7 /* AllClosedPullRequestsAppUITestsLaunchTests.swift */; };
+		8205254C286C1E710091B4C7 /* FetchedClosedRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8205254B286C1E710091B4C7 /* FetchedClosedRequestViewController.swift */; };
+		8232F12E286C382F0058D9B9 /* FetchedClosedRequestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8232F12D286C382F0058D9B9 /* FetchedClosedRequestViewModel.swift */; };
+		823B00BB286C2BD4009CFA3A /* FetchedClosedRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823B00BA286C2BD4009CFA3A /* FetchedClosedRequestTableViewCell.swift */; };
+		827EDA7E286C27C700CC73E3 /* FetchedClosedRequestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 827EDA7D286C27C700CC73E3 /* FetchedClosedRequestTableViewCell.xib */; };
 		F27CE86B7933CE9BA2C92EE9 /* Pods_AllClosedPullRequestsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9B27BA27A2B1FE02D5CEF8 /* Pods_AllClosedPullRequestsApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +61,10 @@
 		82052533286B65610091B4C7 /* AllClosedPullRequestsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AllClosedPullRequestsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82052537286B65610091B4C7 /* AllClosedPullRequestsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClosedPullRequestsAppUITests.swift; sourceTree = "<group>"; };
 		82052539286B65610091B4C7 /* AllClosedPullRequestsAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllClosedPullRequestsAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8205254B286C1E710091B4C7 /* FetchedClosedRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedClosedRequestViewController.swift; sourceTree = "<group>"; };
+		8232F12D286C382F0058D9B9 /* FetchedClosedRequestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedClosedRequestViewModel.swift; sourceTree = "<group>"; };
+		823B00BA286C2BD4009CFA3A /* FetchedClosedRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchedClosedRequestTableViewCell.swift; sourceTree = "<group>"; };
+		827EDA7D286C27C700CC73E3 /* FetchedClosedRequestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FetchedClosedRequestTableViewCell.xib; sourceTree = "<group>"; };
 		866DFDDD6C320E4419482F74 /* Pods-AllClosedPullRequestsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllClosedPullRequestsApp.release.xcconfig"; path = "Target Support Files/Pods-AllClosedPullRequestsApp/Pods-AllClosedPullRequestsApp.release.xcconfig"; sourceTree = "<group>"; };
 		ADB25AAECC4AAB695BC2CBC6 /* Pods_AllClosedPullRequestsApp_AllClosedPullRequestsAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AllClosedPullRequestsApp_AllClosedPullRequestsAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B626479DF2F27485C587F87B /* Pods-AllClosedPullRequestsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AllClosedPullRequestsApp.debug.xcconfig"; path = "Target Support Files/Pods-AllClosedPullRequestsApp/Pods-AllClosedPullRequestsApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -101,7 +109,6 @@
 				2CEEEC2679F6953704A489F4 /* Pods-AllClosedPullRequestsAppTests.debug.xcconfig */,
 				18E70125EC1654AFA198BED0 /* Pods-AllClosedPullRequestsAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -130,12 +137,12 @@
 		82052515286B655D0091B4C7 /* AllClosedPullRequestsApp */ = {
 			isa = PBXGroup;
 			children = (
+				8205254A286C1D530091B4C7 /* Supporting Files */,
+				82052549286C1D2B0091B4C7 /* Models */,
+				82052548286C1D210091B4C7 /* View */,
+				82052547286C1D140091B4C7 /* Controllers */,
 				82052516286B655D0091B4C7 /* AppDelegate.swift */,
 				82052518286B655D0091B4C7 /* SceneDelegate.swift */,
-				8205251A286B655D0091B4C7 /* ViewController.swift */,
-				8205251C286B655D0091B4C7 /* Main.storyboard */,
-				8205251F286B65600091B4C7 /* Assets.xcassets */,
-				82052521286B65600091B4C7 /* LaunchScreen.storyboard */,
 				82052524286B65600091B4C7 /* Info.plist */,
 			);
 			path = AllClosedPullRequestsApp;
@@ -156,6 +163,42 @@
 				82052539286B65610091B4C7 /* AllClosedPullRequestsAppUITestsLaunchTests.swift */,
 			);
 			path = AllClosedPullRequestsAppUITests;
+			sourceTree = "<group>";
+		};
+		82052547286C1D140091B4C7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8205251A286B655D0091B4C7 /* ViewController.swift */,
+				8205254B286C1E710091B4C7 /* FetchedClosedRequestViewController.swift */,
+				823B00BA286C2BD4009CFA3A /* FetchedClosedRequestTableViewCell.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		82052548286C1D210091B4C7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8205251C286B655D0091B4C7 /* Main.storyboard */,
+				827EDA7D286C27C700CC73E3 /* FetchedClosedRequestTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		82052549286C1D2B0091B4C7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8232F12D286C382F0058D9B9 /* FetchedClosedRequestViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8205254A286C1D530091B4C7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8205251F286B65600091B4C7 /* Assets.xcassets */,
+				82052521286B65600091B4C7 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		8A94E038DD1BDABE4F3C796D /* Frameworks */ = {
@@ -280,6 +323,7 @@
 				82052523286B65600091B4C7 /* LaunchScreen.storyboard in Resources */,
 				82052520286B65600091B4C7 /* Assets.xcassets in Resources */,
 				8205251E286B655D0091B4C7 /* Main.storyboard in Resources */,
+				827EDA7E286C27C700CC73E3 /* FetchedClosedRequestTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,8 +451,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8205254C286C1E710091B4C7 /* FetchedClosedRequestViewController.swift in Sources */,
 				8205251B286B655D0091B4C7 /* ViewController.swift in Sources */,
+				8232F12E286C382F0058D9B9 /* FetchedClosedRequestViewModel.swift in Sources */,
 				82052517286B655D0091B4C7 /* AppDelegate.swift in Sources */,
+				823B00BB286C2BD4009CFA3A /* FetchedClosedRequestTableViewCell.swift in Sources */,
 				82052519286B655D0091B4C7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

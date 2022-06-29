@@ -11,21 +11,21 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AllClosedPullRequestsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="AllClosedPullRequestsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFb-eH-uS5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFb-eH-uS5">
                                 <rect key="frame" x="20" y="244" width="115" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="115" id="aHg-GU-ev4"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="115" id="aHg-GU-ev4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repo Name: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDl-dS-ROR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDl-dS-ROR">
                                 <rect key="frame" x="20" y="313" width="115" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="115" id="yTr-O8-Kvd"/>
@@ -83,12 +83,80 @@
                     <connections>
                         <outlet property="fetchButton" destination="hRO-d1-rJY" id="7Bc-uz-UbP"/>
                         <outlet property="repoName" destination="yc2-aa-h0A" id="jbL-8Y-2Pj"/>
+                        <outlet property="repoNameLabel" destination="jDl-dS-ROR" id="Ogc-tj-3uL"/>
                         <outlet property="userName" destination="arV-iq-dJs" id="gEz-Tk-2Ta"/>
+                        <outlet property="usernameLabel" destination="mFb-eH-uS5" id="bqh-Jr-qtA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="116.51785714285714"/>
+        </scene>
+        <!--Fetched Closed Request View Controller-->
+        <scene sceneID="OFt-Im-RDf">
+            <objects>
+                <viewController storyboardIdentifier="FetchedClosedRequestViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Xsi-uU-aQ5" customClass="FetchedClosedRequestViewController" customModule="AllClosedPullRequestsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IDT-iW-9d9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oga-gq-rPV">
+                                <rect key="frame" x="20" y="84" width="374" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XjQ-QD-pLR">
+                                <rect key="frame" x="20" y="140" width="374" height="702"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="J2d-HQ-Lmt">
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J2d-HQ-Lmt" id="Qw5-ml-fQF">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0p-gc-lfA">
+                                <rect key="frame" x="10" y="54" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="F8D-jS-Rbo"/>
+                                    <constraint firstAttribute="width" constant="20" id="i0Y-CT-oIr"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="backButton:" destination="Xsi-uU-aQ5" eventType="touchUpInside" id="yja-lG-J6B"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Rol-eb-YY3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Rol-eb-YY3" firstAttribute="trailing" secondItem="XjQ-QD-pLR" secondAttribute="trailing" constant="20" id="23k-nf-07t"/>
+                            <constraint firstItem="oga-gq-rPV" firstAttribute="leading" secondItem="Rol-eb-YY3" secondAttribute="leading" constant="20" id="4im-vV-ykG"/>
+                            <constraint firstItem="oga-gq-rPV" firstAttribute="top" secondItem="Rol-eb-YY3" secondAttribute="top" constant="40" id="K8M-FF-vA7"/>
+                            <constraint firstItem="Rol-eb-YY3" firstAttribute="bottom" secondItem="XjQ-QD-pLR" secondAttribute="bottom" constant="20" id="TRN-GS-VaI"/>
+                            <constraint firstItem="d0p-gc-lfA" firstAttribute="leading" secondItem="Rol-eb-YY3" secondAttribute="leading" constant="10" id="TTq-4t-QGO"/>
+                            <constraint firstItem="XjQ-QD-pLR" firstAttribute="top" secondItem="oga-gq-rPV" secondAttribute="bottom" constant="20" id="cCY-ah-po0"/>
+                            <constraint firstItem="oga-gq-rPV" firstAttribute="top" secondItem="d0p-gc-lfA" secondAttribute="bottom" constant="10" id="gdV-4n-jlc"/>
+                            <constraint firstItem="d0p-gc-lfA" firstAttribute="top" secondItem="Rol-eb-YY3" secondAttribute="top" constant="10" id="lbd-qV-KKG"/>
+                            <constraint firstItem="XjQ-QD-pLR" firstAttribute="leading" secondItem="Rol-eb-YY3" secondAttribute="leading" constant="20" id="y6N-sZ-c67"/>
+                            <constraint firstItem="Rol-eb-YY3" firstAttribute="trailing" secondItem="oga-gq-rPV" secondAttribute="trailing" constant="20" id="zNS-ay-syw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="d0p-gc-lfA" id="sZW-yA-fw2"/>
+                        <outlet property="closedRequestTableView" destination="XjQ-QD-pLR" id="Eyu-Tf-3Vx"/>
+                        <outlet property="titleLabel" destination="oga-gq-rPV" id="17X-1D-1XT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xFI-xz-F8I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1009" y="117"/>
         </scene>
     </scenes>
     <resources>
