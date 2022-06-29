@@ -38,10 +38,10 @@ class FetchedClosedRequestViewController: UIViewController {
     
     // MARK: Functions
     func setupUI() {
-        self.titleLabel.text = "All Closed Pull Requests"
-        self.backButton.setImage(UIImage(named: "backButtonImage"), for: .normal)
         closedRequestTableView.delegate = self
         closedRequestTableView.dataSource = self
+        self.titleLabel.text = "All Closed Pull Requests"
+        self.backButton.setImage(UIImage(named: "backButtonImage"), for: .normal)
         self.closedRequestTableView.register(UINib(nibName: "FetchedClosedRequestTableViewCell", bundle: nil), forCellReuseIdentifier: "FetchedClosedRequestTableViewCell")
         self.closedRequestTableView.estimatedRowHeight = 100
         self.closedRequestTableView.rowHeight = UITableView.automaticDimension
@@ -61,6 +61,7 @@ extension FetchedClosedRequestViewController: UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "FetchedClosedRequestTableViewCell", for: indexPath) as? FetchedClosedRequestTableViewCell {
+            cell.setupCell(requestTitle: "AS-0000 : Akshit", createdDate: "09/04/1998", closedDate: "01/01/2001", userImage: UIImage(named: "backButtonImage"), username: "Akshit Sharma")
             return cell
         }
         return UITableViewCell()

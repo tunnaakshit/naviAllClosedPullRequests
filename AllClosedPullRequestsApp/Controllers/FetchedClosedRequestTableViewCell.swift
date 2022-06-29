@@ -20,5 +20,21 @@ class FetchedClosedRequestTableViewCell: UITableViewCell {
     
     // MARK: Variables
     
+    var model: FetchedClosedRequestViewModel?
+    
     // MARK: LifeCycle Functions
+    
+    // MARK: Functions
+    
+    func setupCell(requestTitle: String, createdDate: String, closedDate: String, userImage: UIImage?, username: String) {
+        self.requestTitle.text = requestTitle
+        self.createdDate.text = createdDate
+        self.closedSate.text = closedDate
+        if let userImage = userImage {
+            self.userImageView.image = userImage
+        } else {
+            self.userImageView.image = UIImage(named: "")
+        }
+        self.usernameLabel.text = username
+    }
 }
