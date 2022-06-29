@@ -33,6 +33,8 @@ class ViewController: UIViewController {
 
     @IBAction func fetchingAllClosedPullRequests(_ sender: Any) {
         
+        NetworkHandler().getDataFromUrl()
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "FetchedClosedRequestViewController")
         vc.modalPresentationStyle = .fullScreen
