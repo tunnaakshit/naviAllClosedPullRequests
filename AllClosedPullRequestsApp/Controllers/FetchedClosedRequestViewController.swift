@@ -62,7 +62,8 @@ extension FetchedClosedRequestViewController: UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "FetchedClosedRequestTableViewCell", for: indexPath) as? FetchedClosedRequestTableViewCell {
             if let model = model {
-                cell.setupCell(requestTitle: model.requestTitle, createdDate: model.createdDate, closedDate: model.closedDate, userImage: model.userImage, username: model.username )
+                cell.model = model
+                cell.setupCell()
             }
             return cell
         }
