@@ -58,11 +58,11 @@ class FetchedClosedRequestViewController: UIViewController {
         self.seperatorView.alpha = 0.8
         self.errorLabel.layer.masksToBounds = true
         self.errorLabel.layer.cornerRadius = 5
-        self.errorLabel.text = "Sorry! Could not fetch details with the given Username and Reponame. Please try again with correct credentials."
+        self.errorLabel.text = Constants.FetchedClosedRequestVCConstants.errorText
         self.errorView.isHidden = true
-        self.titleLabel.text = "All Closed Pull Requests"
-        self.backButton.setImage(UIImage(named: "backButtonImage"), for: .normal)
-        self.closedRequestTableView.register(UINib(nibName: "FetchedClosedRequestTableViewCell", bundle: nil), forCellReuseIdentifier: "FetchedClosedRequestTableViewCell")
+        self.titleLabel.text = Constants.FetchedClosedRequestVCConstants.labelText
+        self.backButton.setImage(UIImage(named: Constants.FetchedClosedRequestVCConstants.backButtonImage), for: .normal)
+        self.closedRequestTableView.register(UINib(nibName: Constants.FetchedClosedRequestVCConstants.fetchedClosedRequestTableViewCell, bundle: nil), forCellReuseIdentifier: Constants.FetchedClosedRequestVCConstants.fetchedClosedRequestTableViewCell)
         self.closedRequestTableView.estimatedRowHeight = 100
         self.closedRequestTableView.rowHeight = UITableView.automaticDimension
     }
@@ -71,8 +71,8 @@ class FetchedClosedRequestViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
             if let requestModel = RequestModel.shared.requestModel {
                 for i in 0..<requestModel.count {
-                    if(requestModel[i].state == "closed") { // TODO:
-                        let currentRequestModel = FetchedClosedRequestViewModel(requestTitle: requestModel[i].title, username: requestModel[i].user.login, userImage: requestModel[i].user.avatarURL, createdDate: requestModel[i].createdAt, closedDate: requestModel[i].closedAt ?? "")
+                    if(requestModel[i].state == Constants.FetchedClosedRequestVCConstants.closedState) { // TODO:
+                        let currentRequestModel = FetchedClosedRequestViewModel(requestTitle: requestModel[i].title, username: requestModel[i].user.login, userImage: requestModel[i].user.avatarURL, createdDate: requestModel[i].createdAt, closedDate: requestModel[i].closedAt ?? Constants.emptyString)
                         self?.model?.append(currentRequestModel)
                     }
                 }
@@ -99,7 +99,7 @@ extension FetchedClosedRequestViewController: UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "FetchedClosedRequestTableViewCell", for: indexPath) as? FetchedClosedRequestTableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: Constants.FetchedClosedRequestVCConstants.fetchedClosedRequestTableViewCell, for: indexPath) as? FetchedClosedRequestTableViewCell {
             if let model = model?[indexPath.row] {
                 cell.model = model
                 cell.setupCell()

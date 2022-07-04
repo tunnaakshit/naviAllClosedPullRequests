@@ -39,12 +39,10 @@ class NetworkHandler {
     }
     
     func getUrl(repoEndPoint: String) -> String {
-        let baseUrl = "https://api.github.com/repos/"
-        let endpoint = "/pulls?state=all"
+        let baseUrl = Constants.NetworkHandlerConstants.baseUrl
+        let endpoint = Constants.NetworkHandlerConstants.endPoint
         let finalUrl = baseUrl + repoEndPoint + endpoint
         
         return finalUrl
     }
 }
-
-//"https://api.github.com/repos/tunnaakshit/DemoImplementation/pulls?state=all"

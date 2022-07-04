@@ -7,8 +7,6 @@
 
 import UIKit
 
-///https://api.github.com/repos/tunnaakshit/DemoImplementation/pulls?state=all
-
 class ViewController: UIViewController {
 
     // MARK: Outlets
@@ -36,13 +34,13 @@ class ViewController: UIViewController {
 
     @IBAction func fetchingAllClosedPullRequests(_ sender: Any) {
         
-        if let username = self.userName.text, let reponame = self.repoName.text, username != "", reponame != "" {
+        if let username = self.userName.text, let reponame = self.repoName.text, username != Constants.emptyString, reponame != Constants.emptyString {
             
             networkClient.getDataFromUrl(username: username, reponame: reponame)
             
             self.warningLabel.isHidden = true
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(identifier: "FetchedClosedRequestViewController")
+            let storyboard = UIStoryboard(name: Constants.MainVCConstants.mainStoryBoard, bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: Constants.MainVCConstants.fetchedClosedRequestViewController)
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
         } else {
@@ -56,11 +54,11 @@ class ViewController: UIViewController {
     // MARK: Functions
     
     func setupUI() {
-        self.usernameLabel.text = "Username"
-        self.repoNameLabel.text = "Repo Name"
+        self.usernameLabel.text = Constants.MainVCConstants.username
+        self.repoNameLabel.text = Constants.MainVCConstants.reponame
         self.warningLabel.layer.masksToBounds = true
         self.warningLabel.layer.cornerRadius = 10
-        self.warningLabel.text = "WARNING: - Either of the Username or Reponame field is empty. Please enter the desired Username and reponame."
+        self.warningLabel.text = Constants.MainVCConstants.warningText
         self.warningLabel.isHidden = true
         self.fetchButton.layer.masksToBounds = true
         self.fetchButton.layer.cornerRadius = 5

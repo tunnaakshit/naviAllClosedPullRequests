@@ -28,8 +28,8 @@ class FetchedClosedRequestTableViewCell: UITableViewCell {
     
     func setupCell() {
         self.requestTitle.text = self.model?.requestTitle
-        self.createdDate.text = self.splitDate(date: self.model?.createdDate ?? "")
-        self.closedSate.text = self.splitDate(date: self.model?.closedDate ?? "")
+        self.createdDate.text = self.splitDate(date: self.model?.createdDate ?? Constants.emptyString)
+        self.closedSate.text = self.splitDate(date: self.model?.closedDate ?? Constants.emptyString)
         if let userImage = self.model?.userImage {
             guard let url = URL(string: userImage) else {
                 return
@@ -42,7 +42,7 @@ class FetchedClosedRequestTableViewCell: UITableViewCell {
                 }
             }
         } else {
-            self.userImageView.image = UIImage(named: "") // TODO:
+            self.userImageView.image = UIImage(named: Constants.FetchedClosedRequestCellConstants.imageError)
         }
         self.usernameLabel.text = self.model?.username
     }
