@@ -31,9 +31,18 @@ class FetchedClosedRequestTableViewCell: UITableViewCell {
         self.createdDate.text = self.model?.createdDate
         self.closedSate.text = self.model?.closedDate
         if let userImage = self.model?.userImage {
-            self.userImageView.image = userImage
+            guard let url = URL(string: userImage) else {
+                return
+            }
+            DispatchQueue.main.async { [weak self] in
+                if let imageData = try? Data(contentsOf: url) {
+                    if let loadedImage = UIImage(data: imageData) {
+                        self?.userImageView.image = loadedImage
+                    }
+                }
+            }
         } else {
-            self.userImageView.image = UIImage(named: "")
+            self.userImageView.image = UIImage(named: "") // TODO:
         }
         self.usernameLabel.text = self.model?.username
     }

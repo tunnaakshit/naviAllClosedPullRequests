@@ -11,12 +11,12 @@ import UIKit
 class FetchedClosedRequestViewModel {
     var requestTitle: String
     var username: String
-    var userImage: UIImage?
+    var userImage: String?
     var createdDate: String
     var closedDate: String
     
     
-    init(requestTitle: String, username: String, userImage: UIImage?, createdDate: String, closedDate: String) {
+    init(requestTitle: String, username: String, userImage: String?, createdDate: String, closedDate: String) {
         self.requestTitle = requestTitle
         self.username = username
         self.userImage = userImage

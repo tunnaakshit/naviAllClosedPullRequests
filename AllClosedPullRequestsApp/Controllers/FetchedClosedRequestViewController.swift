@@ -18,7 +18,7 @@ class FetchedClosedRequestViewController: UIViewController {
     
     // MARK: Variables
     
-    var model: FetchedClosedRequestViewModel?
+    var model: [FetchedClosedRequestViewModel]? = []
     
     
     // MARK: LifeCycle Functions
@@ -26,9 +26,13 @@ class FetchedClosedRequestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+        updateClosedRequestModel()
         setupUI()
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.closedRequestTableView.reloadData()
     }
     
     // MARK: Actions
@@ -47,6 +51,17 @@ class FetchedClosedRequestViewController: UIViewController {
         self.closedRequestTableView.rowHeight = UITableView.automaticDimension
     }
     
+    func updateClosedRequestModel() {
+        if let requestModel = RequestModel.shared.requestModel {
+            for i in 0..<requestModel.count {
+                if(requestModel[i].state == "closed") { // TODO:
+                    let currentRequestModel = FetchedClosedRequestViewModel(requestTitle: requestModel[i].title, username: requestModel[i].user.login, userImage: requestModel[i].user.avatarURL, createdDate: requestModel[i].createdAt, closedDate: requestModel[i].closedAt ?? "")
+                    model?.append(currentRequestModel)
+                }
+            }
+        }
+    }
+    
 }
 
 extension FetchedClosedRequestViewController: UITableViewDelegate, UITableViewDataSource {
@@ -56,12 +71,12 @@ extension FetchedClosedRequestViewController: UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return model?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "FetchedClosedRequestTableViewCell", for: indexPath) as? FetchedClosedRequestTableViewCell {
-            if let model = model {
+            if let model = model?[indexPath.row] {
                 cell.model = model
                 cell.setupCell()
             }
