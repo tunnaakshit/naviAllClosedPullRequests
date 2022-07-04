@@ -31,6 +31,7 @@ class NetworkHandler {
                 
             case .failure(_):
                 print(response.error)
+                RequestModel.shared.handleError()
             }
             
             
