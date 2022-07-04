@@ -11,9 +11,11 @@ import Alamofire
 class NetworkHandler {
     
     // MARK: Functions
-    func getDataFromUrl() {
+    func getDataFromUrl(username: String, reponame: String) {
         
-        let url = "https://api.github.com/repos/tunnaakshit/DemoImplementation/pulls?state=all"
+        let repoEndPoint = username + "/" + reponame
+        
+        let url = getUrl(repoEndPoint: repoEndPoint)
         
         AF.request(url).responseData { response in
             switch response.result {
@@ -24,6 +26,7 @@ class NetworkHandler {
                     RequestModel.shared.update(model: model)
                 } catch {
                     print("JsonDecoderError: ",error)
+                    RequestModel.shared.handleError()
                 }
                 
             case .failure(_):
@@ -34,5 +37,12 @@ class NetworkHandler {
             
         }
     }
+    
+    func getUrl(repoEndPoint: String) -> String {
+        let baseUrl = Constants.NetworkHandlerConstants.baseUrl
+        let endpoint = Constants.NetworkHandlerConstants.endPoint
+        let finalUrl = baseUrl + repoEndPoint + endpoint
+        
+        return finalUrl
+    }
 }
-
