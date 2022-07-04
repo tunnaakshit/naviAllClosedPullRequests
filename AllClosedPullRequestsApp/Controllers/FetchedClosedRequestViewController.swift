@@ -16,6 +16,9 @@ class FetchedClosedRequestViewController: UIViewController {
     @IBOutlet weak var closedRequestTableView: UITableView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var seperatorView: UIView!
+    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var errorView: UIView!
     
     // MARK: Variables
     
@@ -46,6 +49,17 @@ class FetchedClosedRequestViewController: UIViewController {
         closedRequestTableView.delegate = self
         closedRequestTableView.dataSource = self
         self.loadingView.isHidden = false
+        self.loadingView.alpha = 0.8
+        self.loadingView.layer.masksToBounds = true
+        self.loadingView.layer.cornerRadius = 5
+        self.seperatorView.backgroundColor = .black
+        self.seperatorView.layer.masksToBounds = true
+        self.seperatorView.layer.cornerRadius = 5
+        self.seperatorView.alpha = 0.8
+        self.errorLabel.layer.masksToBounds = true
+        self.errorLabel.layer.cornerRadius = 5
+        self.errorLabel.text = "Sorry! Could not fetch details with the given Username and Reponame. Please try again with correct credentials."
+        self.errorView.isHidden = true
         self.titleLabel.text = "All Closed Pull Requests"
         self.backButton.setImage(UIImage(named: "backButtonImage"), for: .normal)
         self.closedRequestTableView.register(UINib(nibName: "FetchedClosedRequestTableViewCell", bundle: nil), forCellReuseIdentifier: "FetchedClosedRequestTableViewCell")
@@ -54,7 +68,7 @@ class FetchedClosedRequestViewController: UIViewController {
     }
     
     func updateClosedRequestModel() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
             if let requestModel = RequestModel.shared.requestModel {
                 for i in 0..<requestModel.count {
                     if(requestModel[i].state == "closed") { // TODO:
@@ -62,6 +76,10 @@ class FetchedClosedRequestViewController: UIViewController {
                         self?.model?.append(currentRequestModel)
                     }
                 }
+            } else {
+                //Show error view
+                self?.closedRequestTableView.isHidden = true
+                self?.errorView.isHidden = false
             }
             self?.closedRequestTableView.reloadData()
             self?.loadingView.isHidden = true

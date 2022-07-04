@@ -26,6 +26,7 @@ class NetworkHandler {
                     RequestModel.shared.update(model: model)
                 } catch {
                     print("JsonDecoderError: ",error)
+                    RequestModel.shared.handleError()
                 }
                 
             case .failure(_):

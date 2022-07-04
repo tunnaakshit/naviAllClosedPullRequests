@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     
     // MARK: Variables
     
+    var networkClient = NetworkHandler()
+    
     // MARK: LifeCycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +37,9 @@ class ViewController: UIViewController {
     @IBAction func fetchingAllClosedPullRequests(_ sender: Any) {
         
         if let username = self.userName.text, let reponame = self.repoName.text, username != "", reponame != "" {
-            NetworkHandler().getDataFromUrl(username: username, reponame: reponame)
+            
+            networkClient.getDataFromUrl(username: username, reponame: reponame)
+            
             self.warningLabel.isHidden = true
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(identifier: "FetchedClosedRequestViewController")
@@ -43,7 +47,7 @@ class ViewController: UIViewController {
             self.present(vc, animated: true, completion: nil)
         } else {
             self.warningLabel.isHidden = false
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.warningLabel.isHidden = true
             }
         }
@@ -57,8 +61,9 @@ class ViewController: UIViewController {
         self.warningLabel.layer.masksToBounds = true
         self.warningLabel.layer.cornerRadius = 10
         self.warningLabel.text = "WARNING: - Either of the Username or Reponame field is empty. Please enter the desired Username and reponame."
-        
         self.warningLabel.isHidden = true
+        self.fetchButton.layer.masksToBounds = true
+        self.fetchButton.layer.cornerRadius = 5
     }
 
 }

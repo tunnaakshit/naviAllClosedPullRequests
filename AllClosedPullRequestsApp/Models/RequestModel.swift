@@ -45,5 +45,9 @@ class RequestModel: NSObject {
             self.requestModel = model
         }
     }
+    
+    func handleError() {
+        self.requestModel = nil
+    }
 }
 
