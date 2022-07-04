@@ -143,6 +143,23 @@
                                     <action selector="backButton:" destination="Xsi-uU-aQ5" eventType="touchUpInside" id="yja-lG-J6B"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hvC-02-YAp">
+                                <rect key="frame" x="0.0" y="130" width="414" height="766"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="zJ3-Yr-p7M">
+                                        <rect key="frame" x="177" y="353" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="Qfn-o5-1kR"/>
+                                            <constraint firstAttribute="width" constant="60" id="j5p-lq-qQc"/>
+                                        </constraints>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="zJ3-Yr-p7M" firstAttribute="centerX" secondItem="hvC-02-YAp" secondAttribute="centerX" id="URh-Ge-b3c"/>
+                                    <constraint firstItem="zJ3-Yr-p7M" firstAttribute="centerY" secondItem="hvC-02-YAp" secondAttribute="centerY" id="fwy-RO-JEl"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Rol-eb-YY3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -152,9 +169,13 @@
                             <constraint firstItem="oga-gq-rPV" firstAttribute="top" secondItem="Rol-eb-YY3" secondAttribute="top" constant="40" id="K8M-FF-vA7"/>
                             <constraint firstItem="Rol-eb-YY3" firstAttribute="bottom" secondItem="XjQ-QD-pLR" secondAttribute="bottom" constant="20" id="TRN-GS-VaI"/>
                             <constraint firstItem="d0p-gc-lfA" firstAttribute="leading" secondItem="Rol-eb-YY3" secondAttribute="leading" constant="10" id="TTq-4t-QGO"/>
+                            <constraint firstItem="hvC-02-YAp" firstAttribute="leading" secondItem="Rol-eb-YY3" secondAttribute="leading" id="Vsw-j3-E2D"/>
+                            <constraint firstItem="hvC-02-YAp" firstAttribute="top" secondItem="oga-gq-rPV" secondAttribute="bottom" constant="10" id="XtY-Z8-Cy1"/>
                             <constraint firstItem="XjQ-QD-pLR" firstAttribute="top" secondItem="oga-gq-rPV" secondAttribute="bottom" constant="20" id="cCY-ah-po0"/>
                             <constraint firstItem="oga-gq-rPV" firstAttribute="top" secondItem="d0p-gc-lfA" secondAttribute="bottom" constant="10" id="gdV-4n-jlc"/>
                             <constraint firstItem="d0p-gc-lfA" firstAttribute="top" secondItem="Rol-eb-YY3" secondAttribute="top" constant="10" id="lbd-qV-KKG"/>
+                            <constraint firstItem="Rol-eb-YY3" firstAttribute="trailing" secondItem="hvC-02-YAp" secondAttribute="trailing" id="uY1-Gg-Rlc"/>
+                            <constraint firstAttribute="bottom" secondItem="hvC-02-YAp" secondAttribute="bottom" id="vuJ-HZ-fqI"/>
                             <constraint firstItem="XjQ-QD-pLR" firstAttribute="leading" secondItem="Rol-eb-YY3" secondAttribute="leading" constant="20" id="y6N-sZ-c67"/>
                             <constraint firstItem="Rol-eb-YY3" firstAttribute="trailing" secondItem="oga-gq-rPV" secondAttribute="trailing" constant="20" id="zNS-ay-syw"/>
                         </constraints>
@@ -162,6 +183,7 @@
                     <connections>
                         <outlet property="backButton" destination="d0p-gc-lfA" id="sZW-yA-fw2"/>
                         <outlet property="closedRequestTableView" destination="XjQ-QD-pLR" id="Eyu-Tf-3Vx"/>
+                        <outlet property="loadingView" destination="hvC-02-YAp" id="yrl-6T-tyr"/>
                         <outlet property="titleLabel" destination="oga-gq-rPV" id="17X-1D-1XT"/>
                     </connections>
                 </viewController>

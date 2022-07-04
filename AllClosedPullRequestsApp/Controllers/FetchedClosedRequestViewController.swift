@@ -15,6 +15,7 @@ class FetchedClosedRequestViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var closedRequestTableView: UITableView!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var loadingView: UIView!
     
     // MARK: Variables
     
@@ -44,6 +45,7 @@ class FetchedClosedRequestViewController: UIViewController {
     func setupUI() {
         closedRequestTableView.delegate = self
         closedRequestTableView.dataSource = self
+        self.loadingView.isHidden = false
         self.titleLabel.text = "All Closed Pull Requests"
         self.backButton.setImage(UIImage(named: "backButtonImage"), for: .normal)
         self.closedRequestTableView.register(UINib(nibName: "FetchedClosedRequestTableViewCell", bundle: nil), forCellReuseIdentifier: "FetchedClosedRequestTableViewCell")
@@ -62,6 +64,7 @@ class FetchedClosedRequestViewController: UIViewController {
                 }
             }
             self?.closedRequestTableView.reloadData()
+            self?.loadingView.isHidden = true
         }
     }
     
