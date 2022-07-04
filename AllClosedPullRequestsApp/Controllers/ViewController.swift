@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var userName: UITextField!
     @IBOutlet weak var repoName: UITextField!
     @IBOutlet weak var fetchButton: UIButton!
+    @IBOutlet weak var warningLabel: UILabel!
     
     // MARK: Variables
     
@@ -33,13 +34,19 @@ class ViewController: UIViewController {
 
     @IBAction func fetchingAllClosedPullRequests(_ sender: Any) {
         
-        NetworkHandler().getDataFromUrl()
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "FetchedClosedRequestViewController")
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
-        
+        if let username = self.userName.text, let reponame = self.repoName.text, username != "", reponame != "" {
+            NetworkHandler().getDataFromUrl(username: username, reponame: reponame)
+            self.warningLabel.isHidden = true
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: "FetchedClosedRequestViewController")
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        } else {
+            self.warningLabel.isHidden = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                self.warningLabel.isHidden = true
+            }
+        }
     }
     
     // MARK: Functions
@@ -47,6 +54,11 @@ class ViewController: UIViewController {
     func setupUI() {
         self.usernameLabel.text = "Username"
         self.repoNameLabel.text = "Repo Name"
+        self.warningLabel.layer.masksToBounds = true
+        self.warningLabel.layer.cornerRadius = 10
+        self.warningLabel.text = "WARNING: - Either of the Username or Reponame field is empty. Please enter the desired Username and reponame."
+        
+        self.warningLabel.isHidden = true
     }
 
 }

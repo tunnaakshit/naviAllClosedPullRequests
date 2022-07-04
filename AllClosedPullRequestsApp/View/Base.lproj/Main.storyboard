@@ -59,6 +59,13 @@
                                     <action selector="fetchingAllClosedPullRequests:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eGr-it-cI4"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqu-rm-p3r">
+                                <rect key="frame" x="10" y="735.5" width="394" height="20.5"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.85999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -68,10 +75,13 @@
                             <constraint firstItem="jDl-dS-ROR" firstAttribute="top" secondItem="mFb-eH-uS5" secondAttribute="bottom" constant="45" id="6kA-Qw-7EO"/>
                             <constraint firstItem="jDl-dS-ROR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="AzS-24-Rp8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hRO-d1-rJY" secondAttribute="trailing" constant="30" id="Mbz-64-34f"/>
+                            <constraint firstItem="hRO-d1-rJY" firstAttribute="top" secondItem="vqu-rm-p3r" secondAttribute="bottom" constant="20" id="Mfw-LW-atW"/>
                             <constraint firstItem="jDl-dS-ROR" firstAttribute="width" secondItem="mFb-eH-uS5" secondAttribute="width" id="MoK-UU-y7K"/>
                             <constraint firstItem="arV-iq-dJs" firstAttribute="centerY" secondItem="mFb-eH-uS5" secondAttribute="centerY" id="O1K-p0-9fW"/>
                             <constraint firstItem="mFb-eH-uS5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Tka-eq-8lt"/>
+                            <constraint firstItem="vqu-rm-p3r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="YyJ-kP-XWo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yc2-aa-h0A" secondAttribute="trailing" constant="20" id="bhJ-Zo-7hf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vqu-rm-p3r" secondAttribute="trailing" constant="10" id="bsH-oL-qoS"/>
                             <constraint firstItem="yc2-aa-h0A" firstAttribute="leading" secondItem="jDl-dS-ROR" secondAttribute="trailing" constant="8" id="hHj-zK-vuk"/>
                             <constraint firstItem="arV-iq-dJs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="195" id="iWe-Oa-VEN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hRO-d1-rJY" secondAttribute="bottom" constant="30" id="ieF-dG-79r"/>
@@ -86,6 +96,7 @@
                         <outlet property="repoNameLabel" destination="jDl-dS-ROR" id="Ogc-tj-3uL"/>
                         <outlet property="userName" destination="arV-iq-dJs" id="gEz-Tk-2Ta"/>
                         <outlet property="usernameLabel" destination="mFb-eH-uS5" id="bqh-Jr-qtA"/>
+                        <outlet property="warningLabel" destination="vqu-rm-p3r" id="w6E-Yg-VaZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -52,13 +52,16 @@ class FetchedClosedRequestViewController: UIViewController {
     }
     
     func updateClosedRequestModel() {
-        if let requestModel = RequestModel.shared.requestModel {
-            for i in 0..<requestModel.count {
-                if(requestModel[i].state == "closed") { // TODO:
-                    let currentRequestModel = FetchedClosedRequestViewModel(requestTitle: requestModel[i].title, username: requestModel[i].user.login, userImage: requestModel[i].user.avatarURL, createdDate: requestModel[i].createdAt, closedDate: requestModel[i].closedAt ?? "")
-                    model?.append(currentRequestModel)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
+            if let requestModel = RequestModel.shared.requestModel {
+                for i in 0..<requestModel.count {
+                    if(requestModel[i].state == "closed") { // TODO:
+                        let currentRequestModel = FetchedClosedRequestViewModel(requestTitle: requestModel[i].title, username: requestModel[i].user.login, userImage: requestModel[i].user.avatarURL, createdDate: requestModel[i].createdAt, closedDate: requestModel[i].closedAt ?? "")
+                        self?.model?.append(currentRequestModel)
+                    }
                 }
             }
+            self?.closedRequestTableView.reloadData()
         }
     }
     
