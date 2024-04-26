@@ -1,4 +1,4 @@
-# naviAllClosedPullRequests
+# AllClosedPullRequests
 Design an iOS App to display All Closed Pull Requests from Github public
 repository of your own code.
 UI should include : Title, Created date, closed date, userName, user
